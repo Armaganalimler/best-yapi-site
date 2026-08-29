@@ -94,6 +94,12 @@
     padding:16px 0;
     border-bottom:1px solid var(--line);
   }
+  header.on-photo:not(.scrolled)::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.42), rgba(0,0,0,0));
+    pointer-events:none; z-index:-1;
+  }
   header.on-photo:not(.scrolled) .navlinks a{ color:#fff; }
   header.on-photo:not(.scrolled) .menu-btn span{ background:#fff; }
   nav.wrap{display:flex; align-items:center; justify-content:space-between;}
@@ -140,7 +146,9 @@
   .hero::after{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.28) 42%, rgba(10,10,10,0.02) 68%);
+    background:
+      linear-gradient(to bottom, rgba(8,8,8,0.6) 0px, rgba(8,8,8,0.32) 90px, rgba(8,8,8,0) 200px),
+      linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.28) 42%, rgba(10,10,10,0.02) 68%);
   }
   .hero-inner{position:relative; z-index:2; padding-bottom:88px; width:100%;}
   .hero h1{
