@@ -247,6 +247,46 @@
   .footer-col a:hover{color:var(--blue);}
   .footer-bottom{display:flex; justify-content:space-between; padding-top:30px; margin-top:30px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); flex-wrap:wrap; gap:10px;}
 
+  /* ===== SCROLL REVEAL (word-by-word blur/opacity, vanilla JS-driven) ===== */
+  .manifesto{padding:100px 0; text-align:center;}
+  .manifesto p{
+    font-size:clamp(22px,3.4vw,36px); font-weight:700; line-height:1.5; letter-spacing:-0.01em;
+    max-width:20ch; margin:0 auto;
+  }
+  .sr-word{display:inline-block; will-change:opacity, filter, transform;}
+
+  /* ===== COUNT UP STATS STRIP ===== */
+  .stats-strip{border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .stats-strip-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);}
+  @media (max-width:760px){ .stats-strip-grid{grid-template-columns:1fr 1fr;} }
+  .stat-cell{background:var(--bg); padding:40px 24px; text-align:center;}
+  .stat-cell .num{font-size:clamp(28px,3.6vw,44px); font-weight:800;}
+  .stat-cell .num .u{color:var(--blue); font-size:16px; margin-left:2px;}
+  .stat-cell .lbl{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;}
+
+  /* ===== ACCORDION GALLERY ===== */
+  .accordion-gallery{display:flex; gap:6px; height:460px;}
+  .ag-item{
+    flex:1; position:relative; border-radius:12px; overflow:hidden; cursor:pointer;
+    transition:flex 0.55s cubic-bezier(.2,.8,.2,1);
+    background-size:cover; background-position:center;
+  }
+  .ag-item.is-default{flex:2.4;}
+  .ag-item:hover, .ag-item:focus-visible{flex:3.4;}
+  .ag-item::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(6,7,9,0.85) 0%, rgba(6,7,9,0.15) 45%, transparent 70%);
+  }
+  .ag-label{
+    position:absolute; left:18px; bottom:18px; right:14px; z-index:2;
+    color:#fff; font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .ag-loc{position:absolute; left:18px; bottom:44px; right:14px; z-index:2; font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75); white-space:nowrap;}
+  @media (max-width:760px){
+    .accordion-gallery{flex-direction:column; height:auto;}
+    .ag-item{flex:none !important; height:120px;}
+  }
+
   .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 </style>
@@ -295,22 +335,53 @@
   </div>
 </div>
 
+<section class="manifesto">
+  <div class="wrap">
+    <p id="manifestoText">Bir yapı ne zaman biter? Duvarlar yükseldiğinde mi? Hayır. Çatı kapandığında mı? Hayır. Anahtar teslim edildiğinde mi? Hayır. Bir yapı, içinde yaşam başladığında biter.</p>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-strip-grid reveal">
+    <div class="stat-cell"><div class="num"><span class="count-up" data-to="6500">0</span><span class="u">m²</span></div><div class="lbl">Tek Tesiste Kapalı Alan</div></div>
+    <div class="stat-cell"><div class="num"><span class="count-up" data-to="33">0</span></div><div class="lbl">Konutluk Yerleşke</div></div>
+    <div class="stat-cell"><div class="num"><span class="count-up" data-to="2">0</span><span class="u">ülke</span></div><div class="lbl">Türkiye &amp; Azerbaycan</div></div>
+    <div class="stat-cell"><div class="num"><span class="count-up" data-to="6">0</span><span class="u">+</span></div><div class="lbl">Farklı Proje Tipi</div></div>
+  </div>
+</div>
+
 <section id="projeler">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Projeler</div>
       <h2>Farklı ölçekte, tek yürütme</h2>
-      <p>Endüstriyel tesislerden konut yerleşkelerine, tamamlanmış projelerimizden bir seçki.</p>
+      <p>Üzerine gelin, farklı ölçekteki projelerimizi keşfedin.</p>
     </div>
-    <div class="bento reveal">
-      <a class="bcell feature" href="#iletisim">
-        <img src="assets/projects/hazar-day.jpg" alt="Hazar TV Kulesi, Bakü" width="1024" height="683" loading="lazy">
-        <div class="overlay"><h3>Hazar TV Kulesi</h3><p>Bakü, Azerbaycan — Üçgen kafes cam cephe</p></div>
+    <div class="accordion-gallery reveal">
+      <a class="ag-item is-default" href="#iletisim" style="background-image:url('assets/projects/hazar-day.jpg')">
+        <div class="ag-loc">BAKÜ, AZERBAYCAN</div>
+        <div class="ag-label">Hazar TV Kulesi</div>
       </a>
-      <div class="bcell"><div class="num">6.500<span class="u">m²</span></div><div class="lbl">Ak Gıda Depo — İzmir/Tire</div></div>
-      <div class="bcell"><div class="num">33</div><div class="lbl">Günyüzü Konakları — Beykoz</div></div>
-      <div class="bcell"><div class="num">2<span class="u">ülke</span></div><div class="lbl">Türkiye &amp; Azerbaycan</div></div>
-      <div class="bcell"><div class="num">6<span class="u">+</span></div><div class="lbl">Farklı Proje Tipi</div></div>
+      <a class="ag-item" href="#iletisim" style="background-image:url('assets/projects/capitaltower-exterior.jpg')">
+        <div class="ag-loc">HALKALI, İSTANBUL</div>
+        <div class="ag-label">Capital Tower</div>
+      </a>
+      <a class="ag-item" href="#iletisim" style="background-image:url('assets/projects/gunyuzu-aerial.jpg')">
+        <div class="ag-loc">BEYKOZ, İSTANBUL</div>
+        <div class="ag-label">Günyüzü Konakları</div>
+      </a>
+      <a class="ag-item" href="#iletisim" style="background-image:url('assets/projects/akgida-exterior.jpg')">
+        <div class="ag-loc">İZMİR – TİRE</div>
+        <div class="ag-label">Ak Gıda Depo</div>
+      </a>
+      <a class="ag-item" href="#iletisim" style="background-image:url('assets/projects/ankutsan-aerial.jpg')">
+        <div class="ag-loc">MERSİN OSB</div>
+        <div class="ag-label">Ankutsan</div>
+      </a>
+      <a class="ag-item" href="#iletisim" style="background-image:url('assets/projects/ikuni-exterior.jpg')">
+        <div class="ag-loc">İSTANBUL</div>
+        <div class="ag-label">İKÜ Kampüsü</div>
+      </a>
     </div>
   </div>
 </section>
