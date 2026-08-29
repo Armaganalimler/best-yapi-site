@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,18 +26,16 @@
 </script>
 <style>
   :root{
-    --ink:#262A35;
-    --ink-2:#1A1D25;
+    --ink:#1A1A1A;
+    --paper:#FFFFFF;
+    --paper-2:#F6F5F2;
     --blue:#2E86D8;
     --blue-deep:#1D5C99;
-    --paper:#F5F4F0;
-    --paper-2:#EDEBE5;
-    --concrete:#B9B4A9;
-    --line:rgba(38,42,53,0.14);
-    --line-light:rgba(255,255,255,0.16);
-    --black:#101216;
-    --white:#FFFFFF;
-    --maxw:1240px;
+    --gray:#6B6B67;
+    --line:rgba(26,26,26,0.12);
+    --line-2:rgba(255,255,255,0.22);
+    --black:#111111;
+    --maxw:1320px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -46,372 +44,217 @@
     color:var(--ink);
     font-family:'Inter',sans-serif;
     font-size:16px;
-    line-height:1.6;
+    line-height:1.65;
     overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
-    .hero-grid{animation:none !important;}
   }
-
   h1,h2,h3,.display{
-    font-family:'Big Shoulders Display',sans-serif;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:0.01em;
-    line-height:0.95;
-  }
-  .mono{
-    font-family:'Space Mono',monospace;
-    letter-spacing:0.02em;
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.06;
+    letter-spacing:-0.01em;
   }
   a{color:inherit; text-decoration:none;}
   img{display:block; max-width:100%;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
-  @media (max-width:640px){ .wrap{padding:0 20px;} }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 48px;}
+  @media (max-width:640px){ .wrap{padding:0 22px;} }
 
-  /* ===== structural diagrid motif (signature element) ===== */
-  .diagrid-divider{
-    width:100%;
-    height:26px;
-    background-image:
-      linear-gradient(135deg, var(--line) 1px, transparent 1px),
-      linear-gradient(45deg, var(--line) 1px, transparent 1px);
-    background-size:26px 26px;
-    background-position:0 0, 0 0;
-    opacity:0.9;
-  }
-  .diagrid-divider.dark{
-    background-image:
-      linear-gradient(135deg, var(--line-light) 1px, transparent 1px),
-      linear-gradient(45deg, var(--line-light) 1px, transparent 1px);
+  .eyebrow{
+    font-size:11.5px; text-transform:uppercase; letter-spacing:0.14em;
+    color:var(--blue); font-weight:600; margin-bottom:16px;
   }
 
-  /* corner brackets — technical drawing registration marks */
-  .bracket{position:relative;}
-  .bracket::before,.bracket::after{
-    content:"";
-    position:absolute;
-    width:18px; height:18px;
-    border-color:var(--blue);
-    border-style:solid;
-    border-width:0;
-    opacity:0;
-    transition:opacity .35s ease, transform .35s ease;
+  /* ===== accessibility helpers ===== */
+  .skip-link{
+    position:absolute; left:16px; top:-60px;
+    background:var(--ink); color:var(--paper);
+    padding:10px 16px; z-index:1000;
+    font-size:13px; transition:top .2s ease;
   }
-  .bracket::before{top:-1px; left:-1px; border-top-width:2px; border-left-width:2px;}
-  .bracket::after{bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px;}
-  .bracket:hover::before,.bracket:hover::after{opacity:1;}
-  .bracket:hover::before{transform:translate(-4px,-4px);}
-  .bracket:hover::after{transform:translate(4px,4px);}
+  .skip-link:focus{top:16px;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--blue); outline-offset:3px;
+  }
 
   /* ===== NAV ===== */
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:18px 0;
-    transition:background .3s ease, padding .3s ease, border-color .3s ease;
+    padding:26px 0;
+    transition:background .35s ease, padding .35s ease, border-color .35s ease;
     border-bottom:1px solid transparent;
+    mix-blend-mode:normal;
   }
   header.scrolled{
-    background:rgba(245,244,240,0.92);
+    background:rgba(255,255,255,0.94);
     backdrop-filter:blur(10px);
-    padding:12px 0;
+    padding:16px 0;
     border-bottom:1px solid var(--line);
   }
+  header.on-photo:not(.scrolled) .navlinks a{ color:#fff; }
+  header.on-photo:not(.scrolled) .menu-btn span{ background:#fff; }
   nav.wrap{display:flex; align-items:center; justify-content:space-between;}
-  .brand{display:flex; align-items:center; gap:10px;}
-  .brand img{height:30px; width:auto;}
-  .navlinks{display:flex; gap:34px; align-items:center;}
+  .brand img{height:32px; width:auto; display:block;}
+  header.on-photo:not(.scrolled) .brand img{ filter:brightness(0) invert(1); }
+  .navlinks{display:flex; gap:44px; align-items:center;}
   .navlinks a{
-    font-family:'Space Mono',monospace;
-    font-size:12.5px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
+    font-size:12.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:500;
     color:var(--ink);
-    position:relative;
-    padding-bottom:4px;
+    position:relative; padding-bottom:3px;
+    transition:color .3s ease;
   }
   .navlinks a::after{
-    content:"";
-    position:absolute; left:0; bottom:0;
-    width:0; height:2px;
-    background:var(--blue);
+    content:""; position:absolute; left:0; bottom:0;
+    width:0; height:1px; background:currentColor;
     transition:width .25s ease;
   }
   .navlinks a:hover::after{width:100%;}
-  .nav-cta{
-    background:var(--ink); color:var(--white) !important;
-    padding:10px 18px;
-    font-size:12px !important;
-  }
-  .nav-cta::after{display:none;}
-  .navlinks a.nav-cta:hover{background:var(--blue);}
   .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
-  .menu-btn span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+  .menu-btn span{display:block; width:22px; height:1px; background:var(--ink); margin:6px 0; transition:background .3s ease;}
   @media (max-width:860px){
     .navlinks{
       position:fixed; top:0; right:0; height:100vh; width:78%; max-width:320px;
       background:var(--ink); flex-direction:column; justify-content:center; align-items:flex-start;
-      padding:40px; gap:26px;
+      padding:40px; gap:30px;
       transform:translateX(100%); transition:transform .35s ease;
     }
     .navlinks.open{transform:translateX(0);}
-    .navlinks a{color:var(--white); font-size:15px;}
-    .nav-cta{background:var(--blue) !important; width:100%; text-align:center;}
+    .navlinks a{color:#fff !important; font-size:16px;}
     .menu-btn{display:block;}
   }
 
   /* ===== HERO ===== */
   .hero{
     position:relative;
-    min-height:100vh;
-    display:flex; flex-direction:column; justify-content:center;
-    background:var(--ink);
-    color:var(--white);
+    height:100vh; min-height:560px;
+    display:flex; align-items:flex-end;
     overflow:hidden;
-    padding-top:100px;
+    color:#fff;
   }
-  .hero-grid{
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .hero::after{
+    content:"";
     position:absolute; inset:0;
-    background-image:
-      linear-gradient(135deg, var(--line-light) 1px, transparent 1px),
-      linear-gradient(45deg, var(--line-light) 1px, transparent 1px);
-    background-size:64px 64px;
-    opacity:0.5;
-    animation:driftGrid 40s linear infinite;
+    background:linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.28) 42%, rgba(10,10,10,0.02) 68%);
   }
-  @keyframes driftGrid{
-    from{background-position:0 0,0 0;}
-    to{background-position:640px 640px, 640px 640px;}
-  }
-  .hero-glow{
-    position:absolute; right:-10%; top:10%;
-    width:60vw; height:60vw; max-width:900px; max-height:900px;
-    background:radial-gradient(circle, rgba(46,134,216,0.28), transparent 65%);
-    filter:blur(10px);
-    pointer-events:none;
-  }
-  .hero-inner{position:relative; z-index:2;}
-  .eyebrow{
-    font-family:'Space Mono',monospace; font-size:12.5px; letter-spacing:0.16em;
-    text-transform:uppercase; color:var(--blue); margin-bottom:22px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:""; width:34px; height:1px; background:var(--blue);}
+  .hero-inner{position:relative; z-index:2; padding-bottom:88px; width:100%;}
   .hero h1{
-    font-size:clamp(46px, 8.6vw, 118px);
-    color:var(--white);
-    max-width:15ch;
+    font-size:clamp(40px, 6.4vw, 88px);
+    color:#fff;
+    max-width:16ch;
   }
-  .hero h1 .accent{color:var(--blue);}
   .hero-sub{
-    margin-top:28px; max-width:520px;
-    font-size:17px; color:rgba(255,255,255,0.72);
+    margin-top:22px; max-width:480px;
+    font-size:16.5px; color:rgba(255,255,255,0.82);
   }
-  .hero-actions{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:15px 26px;
-    font-family:'Space Mono',monospace; font-size:12.5px;
-    text-transform:uppercase; letter-spacing:0.06em;
-    border:1px solid var(--white); color:var(--white);
-    transition:background .25s ease, color .25s ease, border-color .25s ease;
-  }
-  .btn.solid{background:var(--blue); border-color:var(--blue);}
-  .btn.solid:hover{background:var(--blue-deep); border-color:var(--blue-deep);}
-  .btn.ghost:hover{background:var(--white); color:var(--ink);}
-  .hero-scroll{
-    position:absolute; bottom:36px; left:32px; z-index:2;
-    display:flex; align-items:center; gap:12px;
-    color:rgba(255,255,255,0.55);
-    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em;
-  }
-  .hero-scroll .line{width:1px; height:34px; background:rgba(255,255,255,0.4); position:relative; overflow:hidden;}
-  .hero-scroll .line::after{
-    content:""; position:absolute; top:-100%; left:0; width:100%; height:100%;
-    background:var(--blue); animation:scrollLine 1.8s ease-in-out infinite;
-  }
-  @keyframes scrollLine{ 50%{top:0;} 100%{top:100%;} }
-
-  .hero-coords{
-    position:absolute; top:110px; right:32px; z-index:2;
-    text-align:right; color:rgba(255,255,255,0.4);
-    font-family:'Space Mono',monospace; font-size:11px; line-height:1.8;
-  }
-  @media (max-width:640px){ .hero-coords{display:none;} }
+  @media (max-width:640px){ .hero-inner{padding-bottom:56px;} }
 
   /* ===== SECTION SCAFFOLDING ===== */
-  section{padding:120px 0;}
-  @media (max-width:640px){ section{padding:80px 0;} }
-  .section-head{
+  section{padding:130px 0;}
+  @media (max-width:640px){ section{padding:76px 0;} }
+  .section-head{margin-bottom:56px; max-width:640px;}
+  .section-head h2{font-size:clamp(30px,3.6vw,46px);}
+  .view-all{
+    font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
+    color:var(--blue); border-bottom:1px solid currentColor; padding-bottom:2px;
+  }
+
+  /* ===== FEATURED WORK (asymmetric editorial grid) ===== */
+  .featured-head{
     display:flex; justify-content:space-between; align-items:flex-end;
-    gap:40px; margin-bottom:60px; flex-wrap:wrap;
+    gap:30px; flex-wrap:wrap; margin-bottom:52px;
   }
-  .kicker{
-    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.14em;
-    text-transform:uppercase; color:var(--blue); margin-bottom:14px;
-    display:flex; align-items:center; gap:10px;
+  .featured-grid{
+    display:grid; grid-template-columns:1.35fr 0.85fr 0.85fr; gap:28px; align-items:start;
   }
-  .kicker::before{content:""; width:24px; height:1px; background:var(--blue);}
-  .section-head h2{font-size:clamp(32px,4.4vw,54px); max-width:14ch;}
-  .section-head p{max-width:360px; color:#5B5E68; font-size:15px;}
+  @media (max-width:900px){ .featured-grid{grid-template-columns:1fr 1fr; } .featured-grid a:first-child{grid-column:1/3;} }
+  @media (max-width:600px){ .featured-grid{grid-template-columns:1fr;} .featured-grid a:first-child{grid-column:auto;} }
+  .fw-card{display:block;}
+  .fw-card .imgbox{overflow:hidden; background:var(--paper-2);}
+  .fw-card:nth-child(1) .imgbox{aspect-ratio:4/3;}
+  .fw-card:nth-child(2) .imgbox, .fw-card:nth-child(3) .imgbox{aspect-ratio:3/4;}
+  .fw-card img{width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+  .fw-card:hover img{transform:scale(1.045);}
+  .fw-card .cap{margin-top:18px;}
+  .fw-card .cap h3{font-size:21px; font-weight:500;}
+  .fw-card .cap .loc{font-size:12.5px; color:var(--gray); margin-top:5px; letter-spacing:0.02em;}
 
-  /* ===== ABOUT ===== */
-  .about{background:var(--paper);}
-  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:80px; align-items:start;}
-  @media (max-width:900px){ .about-grid{grid-template-columns:1fr; gap:48px;} }
-  .about-lead{font-size:22px; font-weight:500; color:var(--ink); max-width:34ch;}
-  .about-lead .accent{color:var(--blue);}
-  .about-body{margin-top:24px; color:#4B4E58; max-width:46ch;}
-  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px;}
-  .stat{background:var(--paper); padding:26px 22px;}
-  .stat .num{font-family:'Big Shoulders Display'; font-size:44px; font-weight:800; color:var(--ink); line-height:1;}
-  .stat .num .u{color:var(--blue);}
-  .stat .lbl{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:#767A85; margin-top:8px;}
+  /* ===== SECONDARY PROJECTS ===== */
+  .more-projects{background:var(--paper-2);}
+  .mp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line);}
+  @media (max-width:760px){ .mp-grid{grid-template-columns:1fr;} }
+  .mp-card{background:var(--paper-2); display:block;}
+  .mp-card .imgbox{aspect-ratio:5/4; overflow:hidden;}
+  .mp-card img{width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+  .mp-card:hover img{transform:scale(1.045);}
+  .mp-card .cap{padding:20px 4px 6px;}
+  .mp-card .cap h3{font-size:18px; font-weight:500;}
+  .mp-card .cap .loc{font-size:12px; color:var(--gray); margin-top:4px;}
 
-  /* ===== SERVICES ===== */
-  .services{background:var(--ink); color:var(--white);}
-  .services .kicker{color:var(--blue);}
-  .services .section-head p{color:rgba(255,255,255,0.55);}
-  .service-list{border-top:1px solid var(--line-light);}
-  .service-row{
-    display:grid; grid-template-columns:70px 1.4fr 1.6fr; gap:30px;
-    padding:30px 0; border-bottom:1px solid var(--line-light);
-    align-items:center;
-    transition:background .25s ease;
+  /* ===== TEXT + IMAGE (process / studio) ===== */
+  .split{
+    display:grid; grid-template-columns:0.92fr 1.08fr; gap:90px; align-items:center;
   }
-  .service-row:hover{background:rgba(46,134,216,0.06);}
-  .service-row .idx{font-family:'Space Mono',monospace; color:var(--blue); font-size:13px;}
-  .service-row h3{font-size:26px; text-transform:none; font-weight:700; letter-spacing:0;}
-  .service-row p{color:rgba(255,255,255,0.6); font-size:14.5px; max-width:48ch;}
-  @media (max-width:760px){
-    .service-row{grid-template-columns:1fr; gap:8px; padding:22px 0;}
+  .split.reverse{grid-template-columns:1.08fr 0.92fr;}
+  .split.reverse .split-media{order:2;}
+  .split.reverse .split-text{order:1;}
+  @media (max-width:900px){
+    .split, .split.reverse{grid-template-columns:1fr; gap:36px;}
+    .split.reverse .split-media, .split.reverse .split-text{order:initial;}
   }
+  .split-text h2{font-size:clamp(28px,3.4vw,42px); margin-bottom:22px;}
+  .split-text p{font-size:16px; color:#3d3d3a; max-width:46ch;}
+  .split-text .view-all{display:inline-block; margin-top:26px;}
+  .split-media img{width:100%; aspect-ratio:4/3; object-fit:cover;}
 
-  /* ===== FLAGSHIP PROJECT ===== */
-  .flagship{background:var(--paper-2); position:relative;}
-  .flagship-top{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap; margin-bottom:44px;}
-  .flagship-title h2{font-size:clamp(34px,5vw,64px);}
-  .flagship-meta{
-    display:flex; gap:28px; flex-wrap:wrap;
-    font-family:'Space Mono',monospace; font-size:12px; color:#5B5E68; text-transform:uppercase; letter-spacing:0.04em;
+  /* ===== CONTACT CTA ===== */
+  .contact{background:var(--black); color:#fff;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:80px;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:48px;} }
+  .contact h2{font-size:clamp(32px,4.6vw,56px); color:#fff; max-width:11ch;}
+  .contact-info{margin-top:32px; display:flex; flex-direction:column; gap:22px;}
+  .contact-info .row .lbl{
+    font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue); margin-bottom:4px;
   }
-  .flagship-meta span b{display:block; color:var(--ink); font-size:13px; margin-bottom:3px;}
-  .flagship-media{
-    display:grid; grid-template-columns:1.6fr 1fr; grid-template-rows:auto auto; gap:14px;
-  }
-  .flagship-media .main{grid-row:1/3;}
-  .flagship-media img{width:100%; height:100%; object-fit:cover;}
-  .flagship-media .main img{aspect-ratio:4/5;}
-  .flagship-media .sm img{aspect-ratio:16/10;}
-  @media (max-width:760px){
-    .flagship-media{grid-template-columns:1fr;}
-    .flagship-media .main{grid-row:auto;}
-  }
-  .flagship-quote{
-    margin-top:44px; max-width:60ch;
-    font-size:19px; color:var(--ink); font-weight:500;
-    border-left:2px solid var(--blue); padding-left:22px;
-  }
-
-  /* ===== PROJECT GALLERY ===== */
-  .gallery{background:var(--paper);}
-  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line);}
-  @media (max-width:900px){ .grid3{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .grid3{grid-template-columns:1fr;} }
-  .pcard{
-    background:var(--paper); position:relative; overflow:hidden;
-    cursor:default;
-  }
-  .pcard .imgwrap{aspect-ratio:4/3; overflow:hidden; position:relative;}
-  .pcard img{width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.8,.2,1);}
-  .pcard:hover img{transform:scale(1.06);}
-  .pcard .tag{
-    position:absolute; top:14px; left:14px;
-    background:rgba(16,18,22,0.72); color:var(--white);
-    font-family:'Space Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em;
-    padding:6px 10px;
-  }
-  .pcard .info{padding:22px 22px 26px;}
-  .pcard h3{font-size:24px; text-transform:none; font-weight:700; letter-spacing:0;}
-  .pcard .loc{
-    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--blue);
-    text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;
-  }
-  .pcard .spec{font-size:13.5px; color:#767A85; margin-top:6px;}
-
-  /* ===== PROCESS ===== */
-  .process{background:var(--ink); color:var(--white);}
-  .process .kicker{color:var(--blue);}
-  .process .section-head p{color:rgba(255,255,255,0.55);}
-  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-light);}
-  @media (max-width:900px){ .steps{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:520px){ .steps{grid-template-columns:1fr;} }
-  .step{background:var(--ink); padding:34px 26px;}
-  .step .n{font-family:'Space Mono',monospace; color:var(--blue); font-size:13px;}
-  .step h3{font-size:22px; margin-top:14px; text-transform:none; font-weight:700; letter-spacing:0;}
-  .step p{color:rgba(255,255,255,0.55); font-size:14px; margin-top:10px;}
-
-  /* ===== CTA / CONTACT ===== */
-  .contact{background:var(--paper-2);}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
-  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:44px;} }
-  .contact h2{font-size:clamp(34px,5vw,58px); max-width:12ch;}
-  .contact-info{margin-top:30px; display:flex; flex-direction:column; gap:20px;}
-  .contact-info .row{display:flex; gap:16px; align-items:flex-start;}
-  .contact-info .lbl{
-    font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--blue);
-    letter-spacing:0.06em; min-width:110px; padding-top:3px;
-  }
-  .contact-info .val{font-size:16px; color:var(--ink);}
-  form{display:flex; flex-direction:column; gap:18px;}
+  .contact-info .row .val{font-size:16px; color:rgba(255,255,255,0.88);}
+  form{display:flex; flex-direction:column; gap:20px;}
   .field{display:flex; flex-direction:column; gap:8px;}
-  .field label{
-    font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase;
-    letter-spacing:0.06em; color:#767A85;
-  }
+  .field label{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5);}
   .field input, .field textarea{
-    background:transparent; border:none; border-bottom:1px solid var(--line);
-    padding:10px 2px; font-family:'Inter',sans-serif; font-size:15px; color:var(--ink);
+    background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.28);
+    padding:10px 2px; font-family:'Inter',sans-serif; font-size:15px; color:#fff;
     outline:none; transition:border-color .2s ease;
   }
+  .field input::placeholder, .field textarea::placeholder{color:rgba(255,255,255,0.35);}
   .field input:focus, .field textarea:focus{border-color:var(--blue);}
   .field textarea{resize:vertical; min-height:80px;}
   .submit-btn{
-    margin-top:10px; align-self:flex-start;
-    background:var(--ink); color:var(--white);
+    margin-top:8px; align-self:flex-start;
+    background:var(--blue); color:#fff;
     padding:15px 30px; border:none; cursor:pointer;
-    font-family:'Space Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em;
+    font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;
     transition:background .25s ease;
   }
-  .submit-btn:hover{background:var(--blue);}
+  .submit-btn:hover{background:var(--blue-deep);}
 
   /* ===== FOOTER ===== */
-  footer{background:var(--black); color:rgba(255,255,255,0.55); padding:56px 0 30px;}
-  .footer-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.12);}
-  .footer-top img{height:26px;}
-  .footer-links{display:flex; gap:26px; flex-wrap:wrap;}
-  .footer-links a{font-family:'Space Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:rgba(255,255,255,0.6);}
+  footer{background:var(--black); color:rgba(255,255,255,0.6); padding:56px 0 34px; border-top:1px solid rgba(255,255,255,0.12);}
+  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:36px; padding-bottom:40px;}
+  .footer-top img{height:26px; filter:brightness(0) invert(1);}
+  .footer-offices{display:flex; gap:60px; flex-wrap:wrap; font-size:13.5px;}
+  .footer-offices .lbl{color:var(--blue); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;}
+  .footer-links{display:flex; gap:26px; flex-wrap:wrap; padding-top:28px; border-top:1px solid rgba(255,255,255,0.12);}
+  .footer-links a{font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:rgba(255,255,255,0.6);}
   .footer-links a:hover{color:var(--blue);}
-  .footer-bottom{display:flex; justify-content:space-between; padding-top:24px; font-size:12px; flex-wrap:wrap; gap:10px;}
-
-  /* ===== accessibility helpers ===== */
-  .skip-link{
-    position:absolute; left:16px; top:-60px;
-    background:var(--white); color:var(--ink);
-    padding:10px 16px; z-index:1000;
-    font-family:'Space Mono',monospace; font-size:13px;
-    border:1px solid var(--ink);
-    transition:top .2s ease;
-  }
-  .skip-link:focus{top:16px;}
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--blue); outline-offset:2px;
-  }
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:22px; font-size:12px; flex-wrap:wrap; gap:10px;}
 
   /* ===== reveal on scroll ===== */
-  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 </style>
 </head>
@@ -419,247 +262,115 @@
 
 <a href="#mainContent" class="skip-link">İçeriğe atla</a>
 
-<header id="siteHeader">
+<header id="siteHeader" class="on-photo">
   <nav class="wrap" aria-label="Ana menü">
-    <a href="#" class="brand"><img src="assets/logo-color.png" alt="Best Yapı" width="140" height="30"></a>
+    <a href="#" class="brand"><img src="assets/logo-color.png" alt="Best Yapı" width="150" height="32"></a>
     <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navLinks" type="button"><span></span><span></span><span></span></button>
     <div class="navlinks" id="navLinks">
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#hizmetler">Hizmetler</a>
       <a href="#projeler">Projeler</a>
       <a href="#surec">Süreç</a>
-      <a href="#iletisim" class="nav-cta">Teklif Al</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
     </div>
   </nav>
 </header>
 
 <main id="mainContent">
+
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-coords mono">
-    41.0082° N — 28.9784° E<br>
-    İSTANBUL — BAKÜ — İZMİR — MERSİN
-  </div>
+  <img src="assets/projects/hazar-day.jpg" alt="Hazar TV Kulesi, Bakü — üçgen kafes cam cephe" width="1024" height="683">
   <div class="wrap hero-inner">
-    <div class="eyebrow">Endüstriyel &amp; Kurumsal Yapı</div>
-    <h1>Ölçeği <span class="accent">büyük</span><br>düşünen yapı.</h1>
-    <p class="hero-sub">Best Yapı; lojistik tesislerden ofis kulelerine, konut yerleşkelerinden simge yapılara kadar geniş bir ölçekte tasarım ve inşaat çözümleri üretir.</p>
-    <div class="hero-actions">
-      <a href="#projeler" class="btn solid">Projeleri İncele</a>
-      <a href="#iletisim" class="btn ghost">Bizimle Çalışın</a>
-    </div>
+    <h1>Her ölçekte,<br>aynı titizlikle.</h1>
+    <p class="hero-sub">Best Yapı; endüstriyel tesislerden ofis kulelerine, konut yerleşkelerinden simge yapılara kadar farklı ölçeklerde tasarım ve inşaat çözümleri üretir.</p>
   </div>
-  <div class="hero-scroll"><div class="line"></div>AŞAĞI KAYDIR</div>
 </section>
 
-<div class="diagrid-divider"></div>
+<section id="projeler">
+  <div class="wrap">
+    <div class="featured-head reveal">
+      <div>
+        <div class="eyebrow">Öne Çıkan Projeler</div>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);">Yakın zamanda tamamladıklarımız</h2>
+      </div>
+      <a href="#diger-projeler" class="view-all">Tüm Projeler</a>
+    </div>
+    <div class="featured-grid reveal">
+      <a class="fw-card" href="#diger-projeler">
+        <div class="imgbox"><img src="assets/projects/hazar-day.jpg" alt="Hazar TV Kulesi, Bakü" width="1024" height="683" loading="lazy"></div>
+        <div class="cap"><h3>Hazar TV Kulesi</h3><div class="loc">Bakü, Azerbaycan</div></div>
+      </a>
+      <a class="fw-card" href="#diger-projeler">
+        <div class="imgbox"><img src="assets/projects/capitaltower-exterior.jpg" alt="Capital Tower, Halkalı" width="1354" height="1060" loading="lazy"></div>
+        <div class="cap"><h3>Capital Tower</h3><div class="loc">Halkalı, İstanbul</div></div>
+      </a>
+      <a class="fw-card" href="#diger-projeler">
+        <div class="imgbox"><img src="assets/projects/gunyuzu-aerial.jpg" alt="Günyüzü Konakları, Beykoz" width="1200" height="628" loading="lazy"></div>
+        <div class="cap"><h3>Günyüzü Konakları</h3><div class="loc">Beykoz, İstanbul</div></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-<section class="about" id="hakkimizda">
+<section id="surec">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="split-text">
+        <div class="eyebrow">Süreç</div>
+        <h2>Keşiften teslime, tek bir disiplin.</h2>
+        <p>Her proje; arazi ve program analiziyle başlar, mühendislik detaylarıyla olgunlaşır ve şeffaf bir saha yönetimiyle teslim edilir. Ölçek ne olursa olsun, aynı titizlikle ilerleriz.</p>
+        <a href="#iletisim" class="view-all">Süreci Öğrenin</a>
+      </div>
+      <div class="split-media">
+        <img src="assets/projects/hazar-tunnel.jpg" alt="Detay mühendisliği — Hazar TV Kulesi giriş koridoru" width="473" height="315" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diger-projeler" class="more-projects">
   <div class="wrap">
     <div class="section-head reveal">
-      <div>
-        <div class="kicker">Hakkımızda</div>
+      <div class="eyebrow">Diğer Projeler</div>
+      <h2>Farklı ölçekten bir seçki.</h2>
+    </div>
+  </div>
+  <div class="mp-grid reveal">
+    <a class="mp-card" href="#iletisim">
+      <div class="imgbox"><img src="assets/projects/akgida-exterior.jpg" alt="Ak Gıda Lojistik Deposu, İzmir-Tire" width="800" height="600" loading="lazy"></div>
+      <div class="wrap" style="padding:0;"><div class="cap"><h3>Ak Gıda Lojistik Depo</h3><div class="loc">İzmir – Tire · 6.500 m²</div></div></div>
+    </a>
+    <a class="mp-card" href="#iletisim">
+      <div class="imgbox"><img src="assets/projects/ankutsan-aerial.jpg" alt="Ankutsan Üretim Tesisi, Mersin OSB" width="1400" height="658" loading="lazy"></div>
+      <div class="wrap" style="padding:0;"><div class="cap"><h3>Ankutsan Üretim Tesisi</h3><div class="loc">Mersin OSB</div></div></div>
+    </a>
+    <a class="mp-card" href="#iletisim">
+      <div class="imgbox"><img src="assets/projects/ikuni-exterior.jpg" alt="İstanbul Kültür Üniversitesi kampüs binası" width="960" height="720" loading="lazy"></div>
+      <div class="wrap" style="padding:0;"><div class="cap"><h3>İstanbul Kültür Üniversitesi</h3><div class="loc">İstanbul</div></div></div>
+    </a>
+  </div>
+</section>
+
+<section id="hakkimizda">
+  <div class="wrap">
+    <div class="split reverse reveal">
+      <div class="split-media">
+        <img src="assets/projects/akgida-interior.jpg" alt="Ak Gıda deposu, iç mekân raf ve soğuk hava sistemleri" width="1400" height="1050" loading="lazy">
+      </div>
+      <div class="split-text">
+        <div class="eyebrow">Hakkımızda</div>
         <h2>Mühendislik disipliniyle inşa ediyoruz.</h2>
-      </div>
-    </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p class="about-lead">Best Yapı, farklı ölçek ve programdaki yapıları <span class="accent">tek bir yürütme standardında</span> hayata geçiren bir yapı ve inşaat firmasıdır.</p>
-        <p class="about-body">Endüstriyel tesislerden A sınıfı ofis binalarına, üniversite kampüslerinden konut yerleşkelerine ve simge yapılara kadar farklı programlardaki projelerde; doğru planlama, sağlam mühendislik ve zamanında teslim önceliğimizdir. Her proje, kendi ölçeğine ve kullanım amacına özel bir çözüm gerektirir — biz bu farkı ilk günden itibaren tasarıma yansıtırız.</p>
-      </div>
-      <div class="reveal">
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="num">6<span class="u">+</span></div>
-            <div class="lbl">Farklı Proje Tipi</div>
-          </div>
-          <div class="stat">
-            <div class="num">6.500<span class="u">m²</span></div>
-            <div class="lbl">Tek Tesiste Kapalı Alan</div>
-          </div>
-          <div class="stat">
-            <div class="num">33</div>
-            <div class="lbl">Konutluk Yerleşke</div>
-          </div>
-          <div class="stat">
-            <div class="num">2<span class="u">ülke</span></div>
-            <div class="lbl">Türkiye &amp; Azerbaycan</div>
-          </div>
-        </div>
+        <p>Best Yapı, farklı ölçek ve programdaki yapıları tek bir yürütme standardında hayata geçiren bir yapı ve inşaat firmasıdır. Endüstriyel tesislerden konut yerleşkelerine, doğru planlama ve zamanında teslim önceliğimizdir.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services" id="hizmetler">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="kicker">Hizmetler</div>
-        <h2>Baştan sona<br>yapı çözümleri.</h2>
-      </div>
-      <p>Konsept tasarımdan anahtar teslime kadar her aşamada sahada ve masada birlikte çalışıyoruz.</p>
-    </div>
-    <div class="service-list reveal">
-      <div class="service-row">
-        <div class="idx">01</div>
-        <h3>Endüstriyel Tesis Yapımı</h3>
-        <p>Lojistik depo, üretim tesisi ve soğuk hava deposu gibi büyük açıklıklı endüstriyel yapıların tasarım ve inşaatı.</p>
-      </div>
-      <div class="service-row">
-        <div class="idx">02</div>
-        <h3>Ticari &amp; Ofis Yapıları</h3>
-        <p>A sınıfı ofis kuleleri ve ticari komplekslerde cepheden iç mekâna kadar bütünleşik proje yönetimi.</p>
-      </div>
-      <div class="service-row">
-        <div class="idx">03</div>
-        <h3>Konut &amp; Yerleşke Projeleri</h3>
-        <p>Müstakil konut yerleşkelerinde peyzajdan ortak alanlara kadar yaşam odaklı planlama.</p>
-      </div>
-      <div class="service-row">
-        <div class="idx">04</div>
-        <h3>Kültür &amp; Kamu Yapıları</h3>
-        <p>Üniversite kampüsleri ve kamuya açık yapılarda işlevsel ve temsil gücü yüksek tasarımlar.</p>
-      </div>
-      <div class="service-row">
-        <div class="idx">05</div>
-        <h3>Cephe &amp; Çelik Konstrüksiyon</h3>
-        <p>Karmaşık geometrili cephe sistemleri ve çelik strüktürlerde uygulama mühendisliği.</p>
-      </div>
-      <div class="service-row">
-        <div class="idx">06</div>
-        <h3>Proje &amp; Saha Yönetimi</h3>
-        <p>Planlama, bütçe ve saha koordinasyonunun tek elden, şeffaf biçimde yürütülmesi.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="flagship" id="projeler">
-  <div class="wrap">
-    <div class="flagship-top reveal">
-      <div class="flagship-title">
-        <div class="kicker">Öne Çıkan Proje</div>
-        <h2>Hazar TV Kulesi</h2>
-      </div>
-      <div class="flagship-meta">
-        <span><b>Konum</b>Bakü, Azerbaycan</span>
-        <span><b>Tip</b>Yayın Kulesi &amp; Kamusal Yapı</span>
-        <span><b>Cephe</b>Üçgen Kafes (Diagrid) Cam Cephe</span>
-      </div>
-    </div>
-    <div class="flagship-media reveal">
-      <div class="main bracket"><img src="assets/projects/hazar-day.jpg" alt="Hazar TV Kulesi, gündüz cephe görünümü, Bakü" width="1024" height="683" loading="lazy"></div>
-      <div class="sm bracket"><img src="assets/projects/hazar-night1.jpg" alt="Hazar TV Kulesi, gece aydınlatmalı cephe" width="688" height="452" loading="lazy"></div>
-      <div class="sm bracket"><img src="assets/projects/hazar-tunnel.jpg" alt="Hazar TV Kulesi, orman temalı giriş koridoru" width="473" height="315" loading="lazy"></div>
-    </div>
-    <p class="flagship-quote reveal">Silindirik gövdesi ve üçgen kafes cam cephesiyle Hazar TV Kulesi, gece ışık kurgusuyla Bakü silüetinde bir işaret noktasına dönüşüyor — mimari ile mühendisliğin aynı anda okunduğu bir yapı.</p>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="kicker">Proje Galerisi</div>
-        <h2>Farklı ölçek,<br>tek yürütme.</h2>
-      </div>
-      <p>Endüstriyel tesislerden konut yerleşkelerine, farklı programlardaki tamamlanmış projelerimizden bir seçki.</p>
-    </div>
-  </div>
-  <div class="grid3 reveal">
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">Ticari / Ofis</span><img src="assets/projects/capitaltower-exterior.jpg" alt="Capital Tower, A Sınıfı Ofis Binası, Halkalı" width="1354" height="1060" loading="lazy"></div>
-      <div class="info">
-        <h3>Capital Tower</h3>
-        <div class="loc">Halkalı, İstanbul</div>
-        <div class="spec">A Sınıfı Ofis Binası</div>
-      </div>
-    </div>
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">Kurumsal / Kampüs</span><img src="assets/projects/ikuni-exterior.jpg" alt="İstanbul Kültür Üniversitesi kampüs binası" width="960" height="720" loading="lazy"></div>
-      <div class="info">
-        <h3>İstanbul Kültür Üniversitesi</h3>
-        <div class="loc">İstanbul</div>
-        <div class="spec">Kampüs Yapısı</div>
-      </div>
-    </div>
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">Endüstriyel</span><img src="assets/projects/akgida-exterior.jpg" alt="Ak Gıda İzmir-Tire lojistik deposu" width="800" height="600" loading="lazy"></div>
-      <div class="info">
-        <h3>Ak Gıda Lojistik Depo</h3>
-        <div class="loc">İzmir – Tire</div>
-        <div class="spec">6.500 m² Kapalı Alan</div>
-      </div>
-    </div>
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">Endüstriyel</span><img src="assets/projects/ankutsan-aerial.jpg" alt="Ankutsan Oluklu Mukavva Fabrikası, Mersin OSB" width="1400" height="658" loading="lazy"></div>
-      <div class="info">
-        <h3>Ankutsan Üretim Tesisi</h3>
-        <div class="loc">Mersin OSB</div>
-        <div class="spec">Oluklu Mukavva Fabrikası</div>
-      </div>
-    </div>
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">Konut</span><img src="assets/projects/gunyuzu-aerial.jpg" alt="Günyüzü Konakları, Beykoz" width="1200" height="628" loading="lazy"></div>
-      <div class="info">
-        <h3>Günyüzü Konakları</h3>
-        <div class="loc">Beykoz, İstanbul</div>
-        <div class="spec">33 Adet Müstakil Ev</div>
-      </div>
-    </div>
-    <div class="pcard bracket">
-      <div class="imgwrap"><span class="tag">İç Mekân</span><img src="assets/projects/akgida-interior.jpg" alt="Ak Gıda deposu, iç mekân raf sistemleri" width="1400" height="1050" loading="lazy"></div>
-      <div class="info">
-        <h3>Depo İç Donanımı</h3>
-        <div class="loc">İzmir – Tire</div>
-        <div class="spec">Soğuk Hava &amp; Raf Sistemleri</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="process" id="surec">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="kicker">Çalışma Süreci</div>
-        <h2>Konseptten<br>teslime.</h2>
-      </div>
-      <p>Her projede aynı disiplinle ilerleyen, uçtan uca şeffaf bir süreç.</p>
-    </div>
-  </div>
-  <div class="steps reveal">
-    <div class="step">
-      <div class="n mono">01 — Keşif</div>
-      <h3>Analiz &amp; Fizibilite</h3>
-      <p>Arazi, program ve bütçe analiziyle projenin çerçevesi netleştirilir.</p>
-    </div>
-    <div class="step">
-      <div class="n mono">02 — Tasarım</div>
-      <h3>Konsept &amp; Mühendislik</h3>
-      <p>Mimari konsept, statik ve tesisat projeleriyle birlikte geliştirilir.</p>
-    </div>
-    <div class="step">
-      <div class="n mono">03 — Uygulama</div>
-      <h3>Saha &amp; Yapım</h3>
-      <p>İnşaat süreci, düzenli raporlama ile şeffaf biçimde yürütülür.</p>
-    </div>
-    <div class="step">
-      <div class="n mono">04 — Teslim</div>
-      <h3>Devreye Alma</h3>
-      <p>Kontroller tamamlanır, yapı kullanıma hazır şekilde teslim edilir.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="iletisim">
+<section id="iletisim" class="contact">
   <div class="wrap">
     <div class="contact-grid">
       <div class="reveal">
-        <div class="kicker">İletişim</div>
-        <h2>Projenizi<br>konuşalım.</h2>
+        <div class="eyebrow" style="color:var(--blue);">İletişim</div>
+        <h2>Projenizi konuşalım.</h2>
         <div class="contact-info">
           <div class="row"><div class="lbl">Telefon</div><div class="val">+90 (2XX) XXX XX XX</div></div>
           <div class="row"><div class="lbl">E-posta</div><div class="val">info@bestyapi.com</div></div>
@@ -672,26 +383,31 @@
           <div class="field"><label for="cf-email">E-posta</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="cf-message">Proje Hakkında</label><textarea id="cf-message" name="message" rows="4"></textarea></div>
           <button type="submit" class="submit-btn">Gönder</button>
-          <p id="formNote" role="status" aria-live="polite" style="display:none; font-family:'Space Mono',monospace; font-size:12px; color:var(--blue); margin-top:6px;">Form arayüzü hazır — canlıya almadan önce bir form servisine (Netlify Forms, Formspree vb.) bağlanmalı.</p>
+          <p id="formNote" role="status" aria-live="polite" style="display:none; font-size:12px; color:var(--blue); margin-top:6px;">Form arayüzü hazır — canlıya almadan önce bir form servisine (Netlify Forms, Formspree vb.) bağlanmalı.</p>
         </form>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <img src="assets/logo-white.png" alt="Best Yapı" width="120" height="26" loading="lazy">
-      <div class="footer-links">
-        <a href="#hakkimizda">Hakkımızda</a>
-        <a href="#hizmetler">Hizmetler</a>
-        <a href="#projeler">Projeler</a>
-        <a href="#iletisim">İletişim</a>
+      <img src="assets/logo-color.png" alt="Best Yapı" width="120" height="26" loading="lazy">
+      <div class="footer-offices">
+        <div><div class="lbl">İstanbul</div>[Ofis adresi buraya eklenecek]</div>
+        <div><div class="lbl">Bakü</div>[Ofis adresi buraya eklenecek]</div>
       </div>
     </div>
-    <div class="footer-bottom mono">
+    <div class="footer-links">
+      <a href="#projeler">Projeler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+    <div class="footer-bottom">
       <span>© 2026 Best Yapı. Tüm hakları saklıdır.</span>
       <span>İstanbul, Türkiye</span>
     </div>
@@ -699,36 +415,23 @@
 </footer>
 
 <script>
-  // header scroll state
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // mobile menu (with accessible open/close state)
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
-
-  function closeMenu(){
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }
-  function onEscClose(e){
-    if (e.key === 'Escape'){ closeMenu(); menuBtn.focus(); }
-  }
+  function closeMenu(){ navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
+  function onEscClose(e){ if (e.key === 'Escape'){ closeMenu(); menuBtn.focus(); } }
   menuBtn.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', String(open));
-    if (open){
-      navLinks.querySelector('a')?.focus();
-      document.addEventListener('keydown', onEscClose);
-    } else {
-      document.removeEventListener('keydown', onEscClose);
-    }
+    if (open){ navLinks.querySelector('a')?.focus(); document.addEventListener('keydown', onEscClose); }
+    else { document.removeEventListener('keydown', onEscClose); }
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // contact form (visual feedback only — connect to a real form service before going live)
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -736,12 +439,9 @@
     document.getElementById('formNote').style.display = 'block';
   });
 
-  // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 </script>
