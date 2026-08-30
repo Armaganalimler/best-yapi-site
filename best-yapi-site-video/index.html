@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Yapı — Endüstriyel ve Kurumsal Yapı Çözümleri</title>
+<meta name="description" content="Best Yapı — endüstriyel tesis, ofis, konut ve kültür yapılarında tasarımdan anahtar teslime uçtan uca inşaat çözümleri. İstanbul, İzmir, Mersin ve Bakü'de tamamlanmış projeler.">
+<meta property="og:title" content="Best Yapı — Endüstriyel ve Kurumsal Yapı Çözümleri">
+<meta property="og:description" content="Lojistik tesislerden ofis kulelerine, konut yerleşkelerinden simge yapılara kadar tasarım ve inşaat çözümleri.">
+<meta property="og:image" content="assets/logo-color.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "Best Yapı",
+  "legalName": "Bestart Mimarlık Yapı Üretim San. ve Tic. Ltd. Şti.",
+  "image": "assets/logo-color.png",
+  "areaServed": ["İstanbul", "İzmir", "Mersin", "Bakü"],
+  "telephone": "+90 532 399 87 67",
+  "email": "mimarercansari@gmail.com",
+  "address": {"@type": "PostalAddress", "streetAddress": "Yeni Mah., Atatürk Cd. No:13 İç Kapı No:11", "addressLocality": "Tire/İzmir", "addressCountry": "TR"}
+}
+</script>
+<style>
+  :root{
+    --paper:#FAF8F4;
+    --paper-2:#F1EEE6;
+    --ink:#1E212B;
+    --navy:#262A35;
+    --navy-deep:#0C0D10;
+    --blue:#2E86D8;
+    --blue-deep:#1D5C99;
+    --blue-glow:#5EA8EA;
+    --platinum:#C9CDD6;
+    --platinum-dim:#9195A0;
+    --line:rgba(30,33,43,0.13);
+    --line-2:rgba(255,255,255,0.14);
+    --gray:#666A72;
+    --maxw:1260px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; font-size:16px; line-height:1.65;
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  h1,h2,h3{font-family:'Sora',sans-serif; font-weight:700; line-height:1.1; letter-spacing:-0.02em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 36px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.14em; color:var(--blue-deep); margin-bottom:14px; font-weight:700;
+  }
+  .eyebrow.on-dark{color:var(--blue-glow);}
+
+  /* corner accent mark — restrained, appears on hover only */
+  .accent-mark{position:relative;}
+  .accent-mark::before{
+    content:""; position:absolute; top:12px; left:12px; width:16px; height:16px;
+    border-top:2px solid #fff; border-left:2px solid #fff;
+    opacity:0; transform:translate(-4px,-4px); transition:opacity .3s ease, transform .3s ease;
+  }
+  .accent-mark:hover::before{opacity:1; transform:translate(0,0);}
+
+  /* ===== accessibility ===== */
+  .skip-link{
+    position:absolute; left:16px; top:-60px; background:var(--navy); color:#fff;
+    padding:10px 16px; z-index:1000; font-size:13px; transition:top .2s ease; border-radius:6px;
+  }
+  .skip-link:focus{top:16px;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--blue); outline-offset:3px;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:100; background:rgba(250,248,244,0.88); backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent; padding:22px 0; transition:padding .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  header.scrolled{padding:14px 0; border-bottom-color:var(--line); box-shadow:0 6px 20px rgba(30,33,43,0.05);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand img{height:30px; width:auto;}
+  .navlinks{display:flex; gap:36px; align-items:center;}
+  .navlinks a:not(.nav-cta){
+    font-size:13.5px; font-weight:600; color:var(--ink); position:relative; padding-bottom:4px;
+  }
+  .navlinks a:not(.nav-cta)::after{
+    content:""; position:absolute; left:50%; bottom:0; width:0; height:2px; background:var(--blue);
+    transition:width .25s ease, left .25s ease;
+  }
+  .navlinks a:not(.nav-cta):hover::after{width:100%; left:0;}
+  .nav-cta{
+    background:var(--navy); color:#fff !important; padding:10px 22px; border-radius:99px; font-size:13px; font-weight:600;
+    transition:background .25s ease;
+  }
+  .nav-cta:hover{background:var(--blue);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-btn span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px;}
+  @media (max-width:900px){
+    .navlinks{
+      position:fixed; top:0; right:0; height:100vh; width:78%; max-width:300px;
+      background:var(--navy); flex-direction:column; justify-content:center; align-items:flex-start;
+      padding:40px; gap:28px; transform:translateX(100%); transition:transform .35s ease;
+    }
+    .navlinks.open{transform:translateX(0);}
+    .navlinks a:not(.nav-cta){color:#fff; font-size:16px;}
+    .nav-cta{background:var(--blue) !important; width:100%; text-align:center;}
+    .menu-btn{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{position:relative; height:88vh; min-height:620px; display:flex; align-items:flex-end; overflow:hidden; color:#fff;}
+  .hero img, .hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(1.25) contrast(1.12) brightness(0.78); transform:scale(1.03);}
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 75% 15%, rgba(94,168,234,0.28), transparent 55%),
+      linear-gradient(to top, rgba(6,7,10,0.95) 0%, rgba(6,7,10,0.55) 46%, rgba(6,7,10,0.14) 100%);
+  }
+  .hero-inner{position:relative; z-index:2; padding-bottom:56px; width:100%;}
+  .hero h1{font-size:clamp(32px, 5.2vw, 60px); max-width:16ch;}
+  .hero h1 .accent{
+    background:linear-gradient(100deg, var(--blue-glow) 0%, var(--platinum) 45%, var(--blue-glow) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{margin-top:18px; max-width:480px; font-size:16px; color:rgba(255,255,255,0.8);}
+  .hero-actions{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; padding:14px 26px; border-radius:99px;
+    font-size:13.5px; font-weight:600; transition:background .25s ease, color .25s ease, transform .2s ease, box-shadow .25s ease;
+  }
+  .btn .arrow{transition:transform .25s ease;}
+  .btn:hover .arrow{transform:translateX(3px);}
+  .btn.solid{background:linear-gradient(135deg, var(--blue), var(--blue-deep)); color:#fff; box-shadow:0 8px 22px rgba(46,134,216,0.28);}
+  .btn.solid:hover{box-shadow:0 14px 32px rgba(46,134,216,0.45); transform:translateY(-2px);}
+  .btn.ghost{border:1px solid rgba(255,255,255,0.55); color:#fff;}
+  .btn.ghost:hover{background:#fff; color:var(--navy);}
+
+  .hero-stats{
+    display:flex; gap:0; margin-top:44px; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.2); padding-top:24px; max-width:560px;
+  }
+  .hero-stats .hs{padding-right:32px; margin-right:32px; border-right:1px solid rgba(255,255,255,0.2);}
+  .hero-stats .hs:last-child{border-right:none; margin-right:0; padding-right:0;}
+  .hero-stats .num{font-family:'Sora',sans-serif; font-weight:700; font-size:26px;}
+  .hero-stats .lbl{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-top:4px;}
+
+  /* ===== SCAFFOLDING ===== */
+  section{padding:104px 0;}
+  @media (max-width:640px){ section{padding:64px 0;} }
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,38px); max-width:16ch;}
+  .section-head p{max-width:340px; color:var(--gray); font-size:14.5px;}
+
+  /* ===== PROJECTS ===== */
+  .pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:900px){ .pgrid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .pgrid{grid-template-columns:1fr;} }
+  .pcard{display:block; border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; border:none; padding:0; width:100%; background:none; cursor:pointer; font-family:inherit; text-align:left;}
+  .pcard img{width:100%; height:100%; object-fit:cover; transition:transform .55s cubic-bezier(.2,.7,.2,1);}
+  .pcard:hover img{transform:scale(1.06);}
+  .pcard::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(15,17,23,0.88) 0%, rgba(15,17,23,0.15) 55%, transparent 75%);
+  }
+  .pcard .cap{position:absolute; left:20px; right:16px; bottom:18px; z-index:2; color:#fff;}
+  .pcard h3{font-size:18px; font-weight:700;}
+  .pcard .loc{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:rgba(255,255,255,0.7); margin-top:5px; text-transform:uppercase;}
+
+  /* ===== PROCESS ===== */
+  .process{background:var(--paper-2);}
+  .psteps-wrap{position:relative;}
+  .psteps-line{position:absolute; top:19px; left:calc(12.5% + 20px); right:calc(12.5% + 20px); height:2px; background:var(--line); z-index:0;}
+  @media (max-width:860px){ .psteps-line{display:none;} }
+  .psteps-line-fill{position:absolute; top:0; left:0; height:100%; width:0; background:linear-gradient(90deg, var(--blue), var(--blue-glow)); transition:width 1.3s cubic-bezier(.2,.7,.2,1);}
+  .psteps-wrap.in .psteps-line-fill{width:100%;}
+  .psteps{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative; z-index:1;}
+  @media (max-width:860px){ .psteps{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .psteps{grid-template-columns:1fr;} }
+  .pstep{text-align:center;}
+  .pstep .circle{
+    width:40px; height:40px; border-radius:50%; background:var(--paper-2); border:2px solid var(--blue);
+    color:var(--navy); display:flex; align-items:center; justify-content:center; margin:0 auto;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700;
+  }
+  .pstep h3{font-size:17px; margin-top:16px;}
+  .pstep p{font-size:13.5px; color:var(--gray); margin-top:8px; max-width:22ch; margin-left:auto; margin-right:auto;}
+
+  /* ===== SERVICES ===== */
+  .sgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:860px){ .sgrid{grid-template-columns:1fr;} }
+  .scard{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:30px 26px;
+    position:relative; overflow:hidden; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .scard::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--blue), var(--platinum));
+    transform:scaleX(0); transform-origin:left; transition:transform .35s ease;
+  }
+  .scard:hover{border-color:var(--blue); transform:translateY(-4px); box-shadow:0 18px 40px rgba(30,33,43,0.1);}
+  .scard:hover::before{transform:scaleX(1);}
+  .scard h3{font-size:18px;}
+  .scard p{font-size:13.5px; color:var(--gray); margin-top:10px;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--paper);}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;}
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr; gap:32px;} }
+  .about-media{border-radius:14px; overflow:hidden; aspect-ratio:4/3;}
+  .about-media img{width:100%; height:100%; object-fit:cover;}
+  .about-text h2{font-size:clamp(24px,3vw,34px); max-width:14ch;}
+  .about-text p{margin-top:18px; color:var(--gray); font-size:15px; max-width:44ch;}
+
+  /* ===== CONTACT — one grounding dark section ===== */
+  .contact{background:var(--navy); color:#fff;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:36px;} }
+  .contact h2{font-size:clamp(26px,3.6vw,42px); color:#fff; max-width:12ch;}
+  .contact-info{margin-top:26px; display:flex; flex-direction:column; gap:18px;}
+  .contact-info .lbl{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:#8FC1EE;}
+  .contact-info .val{font-size:15px; color:rgba(255,255,255,0.9); margin-top:3px;}
+  form{display:flex; flex-direction:column; gap:15px;}
+  .field{display:flex; flex-direction:column; gap:7px;}
+  .field label{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:rgba(255,255,255,0.55);}
+  .field input, .field textarea{
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.2); border-radius:9px;
+    padding:11px 13px; font-family:'Inter',sans-serif; font-size:14.5px; color:#fff; outline:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .field input::placeholder, .field textarea::placeholder{color:rgba(255,255,255,0.4);}
+  .field input:focus, .field textarea:focus{border-color:var(--blue); background:rgba(255,255,255,0.1);}
+  .field textarea{resize:vertical; min-height:76px;}
+  .submit-btn{
+    margin-top:4px; align-self:flex-start; background:var(--blue); color:#fff; border:none; cursor:pointer; border-radius:99px;
+    padding:13px 28px; font-size:13.5px; font-weight:600; transition:background .25s ease;
+  }
+  .submit-btn:hover{background:var(--blue-deep);}
+  .contact :focus-visible{outline-color:#fff !important;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:40px 0 26px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .footer-row img{height:22px;}
+  .footer-links{display:flex; gap:22px; flex-wrap:wrap;}
+  .footer-links a{font-size:12px; color:rgba(255,255,255,0.5);}
+  .footer-links a:hover{color:var(--blue);}
+  .footer-bottom{margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); font-size:11.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox[hidden]{display:none;}
+  .lightbox{position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center; padding:24px;}
+  .lightbox-backdrop{position:absolute; inset:0; background:rgba(15,17,23,0.86); backdrop-filter:blur(4px);}
+  .lightbox-panel{
+    position:relative; z-index:1; background:var(--paper); border-radius:16px; overflow:hidden;
+    max-width:920px; width:100%; max-height:88vh; display:flex; flex-direction:column;
+    box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  }
+  .lightbox-panel img{width:100%; aspect-ratio:16/9; object-fit:cover;}
+  .lightbox-info{padding:26px 32px 32px; overflow-y:auto;}
+  .lightbox-info h3{font-size:22px; margin-top:6px;}
+  .lightbox-info p{margin-top:12px; color:var(--gray); font-size:14.5px; max-width:60ch;}
+  .lightbox-info .loc{font-size:11px; color:var(--blue); text-transform:uppercase;}
+  .lightbox-info .btn{margin-top:22px;}
+  .lightbox-close{
+    position:absolute; top:14px; right:14px; z-index:2; width:36px; height:36px; border-radius:50%;
+    background:rgba(15,17,23,0.55); color:#fff; border:none; cursor:pointer; font-size:15px;
+    display:flex; align-items:center; justify-content:center; transition:background .2s ease;
+  }
+  .lightbox-close:hover{background:rgba(15,17,23,0.8);}
+  @media (max-width:640px){ .lightbox-info{padding:20px 20px 24px;} }
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<a href="#mainContent" class="skip-link">İçeriğe atla</a>
+
+<header id="siteHeader">
+  <nav class="wrap" aria-label="Ana menü">
+    <a href="#" class="brand"><img src="assets/logo-color.png" alt="Best Yapı" width="150" height="30"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navLinks" type="button"><span></span><span></span><span></span></button>
+    <div class="navlinks" id="navLinks">
+      <a href="#projeler">Projeler</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim" class="nav-cta">Teklif Al</a>
+    </div>
+  </nav>
+</header>
+
+<main id="mainContent">
+
+<section class="hero">
+  <video autoplay muted loop playsinline poster="assets/video/poster.jpg" aria-hidden="true">
+    <source src="assets/video/baku-night.mp4" type="video/mp4">
+  </video>
+  <div class="wrap hero-inner">
+    <div class="eyebrow on-dark">Best Yapı — Endüstriyel &amp; Kurumsal Yapı</div>
+    <h1>Ölçeği <span class="accent">büyük</span> düşünen yapı.</h1>
+    <p class="hero-sub">Lojistik tesislerden ofis kulelerine, konut yerleşkelerinden simge yapılara kadar geniş bir ölçekte tasarım ve inşaat çözümleri üretiyoruz.</p>
+    <div class="hero-actions">
+      <a href="#projeler" class="btn solid">Projeleri İncele <span class="arrow">→</span></a>
+      <a href="#iletisim" class="btn ghost">Bizimle Çalışın</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="hs"><div class="num">6.500m²</div><div class="lbl">Kapalı Alan</div></div>
+      <div class="hs"><div class="num">33</div><div class="lbl">Konut Yerleşke</div></div>
+      <div class="hs"><div class="num">2 Ülke</div><div class="lbl">TR &amp; Azerbaycan</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projeler">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Projeler</div>
+        <h2>Farklı ölçekte, tek yürütme.</h2>
+      </div>
+      <p>Endüstriyel tesislerden konut yerleşkelerine, tamamlanmış projelerimizden bir seçki.</p>
+    </div>
+    <div class="pgrid reveal">
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/hazar-day.jpg" data-title="Hazar TV Kulesi" data-loc="Bakü, Azerbaycan" data-desc="Üçgen kafes (diagrid) cam cepheli yayın kulesi. Silindirik gövdesi ve gece ışık kurgusuyla Bakü silüetinde bir işaret noktası.">
+        <img src="assets/projects/hazar-day.jpg" alt="Hazar TV Kulesi, Bakü" width="1024" height="683" loading="lazy">
+        <div class="cap"><h3>Hazar TV Kulesi</h3><div class="loc">Bakü, Azerbaycan</div></div>
+      </button>
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/capitaltower-exterior.jpg" data-title="Capital Tower" data-loc="Halkalı, İstanbul" data-desc="A Sınıfı ofis binası. Ticari kompleks içinde konumlanan, çok katlı modern bir ofis kulesi.">
+        <img src="assets/projects/capitaltower-exterior.jpg" alt="Capital Tower, Halkalı" width="1354" height="1060" loading="lazy">
+        <div class="cap"><h3>Capital Tower</h3><div class="loc">Halkalı, İstanbul</div></div>
+      </button>
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/gunyuzu-aerial.jpg" data-title="Günyüzü Konakları" data-loc="Beykoz, İstanbul" data-desc="33 adet müstakil evden oluşan konut yerleşkesi. Ortak havuz ve peyzaj alanlarıyla planlandı.">
+        <img src="assets/projects/gunyuzu-aerial.jpg" alt="Günyüzü Konakları, Beykoz" width="1200" height="628" loading="lazy">
+        <div class="cap"><h3>Günyüzü Konakları</h3><div class="loc">Beykoz, İstanbul</div></div>
+      </button>
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/akgida-exterior.jpg" data-title="Ak Gıda Lojistik Depo" data-loc="İzmir – Tire" data-desc="6.500 m² kapalı alana sahip lojistik depo. Soğuk hava ve raf sistemleriyle donatıldı.">
+        <img src="assets/projects/akgida-exterior.jpg" alt="Ak Gıda Lojistik Deposu, İzmir-Tire" width="800" height="600" loading="lazy">
+        <div class="cap"><h3>Ak Gıda Lojistik Depo</h3><div class="loc">İzmir – Tire</div></div>
+      </button>
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/ankutsan-aerial.jpg" data-title="Ankutsan Üretim Tesisi" data-loc="Mersin OSB" data-desc="Oluklu mukavva üretim tesisi. Mersin Organize Sanayi Bölgesi'nde geniş kapalı alanlı fabrika kompleksi.">
+        <img src="assets/projects/ankutsan-aerial.jpg" alt="Ankutsan Üretim Tesisi, Mersin OSB" width="1400" height="658" loading="lazy">
+        <div class="cap"><h3>Ankutsan Üretim Tesisi</h3><div class="loc">Mersin OSB</div></div>
+      </button>
+      <button type="button" class="pcard accent-mark" data-img="assets/projects/ikuni-exterior.jpg" data-title="İstanbul Kültür Üniversitesi" data-loc="İstanbul" data-desc="Üniversite kampüs binası. Cam cephe ve çift kule tasarımıyla kurumsal bir eğitim yapısı.">
+        <img src="assets/projects/ikuni-exterior.jpg" alt="İstanbul Kültür Üniversitesi kampüs binası" width="960" height="720" loading="lazy">
+        <div class="cap"><h3>İstanbul Kültür Üniversitesi</h3><div class="loc">İstanbul</div></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+  <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Kapat">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-info">
+      <div class="loc mono" id="lightboxLoc"></div>
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+      <a href="#iletisim" class="btn solid" id="lightboxCta">Bu Proje Hakkında Bilgi Alın <span class="arrow">→</span></a>
+    </div>
+  </div>
+</div>
+
+<section class="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Süreç</div>
+        <h2>Konseptten teslime.</h2>
+      </div>
+      <p>Her projede aynı disiplinle ilerleyen, uçtan uca şeffaf bir süreç.</p>
+    </div>
+    <div class="psteps-wrap reveal">
+      <div class="psteps-line"><div class="psteps-line-fill"></div></div>
+      <div class="psteps">
+        <div class="pstep"><div class="circle">01</div><h3>Keşif</h3><p>Arazi, program ve bütçe analizi.</p></div>
+        <div class="pstep"><div class="circle">02</div><h3>Tasarım</h3><p>Mimari ve mühendislik projeleri.</p></div>
+        <div class="pstep"><div class="circle">03</div><h3>Uygulama</h3><p>Şeffaf raporlamayla saha yönetimi.</p></div>
+        <div class="pstep"><div class="circle">04</div><h3>Teslim</h3><p>Kontroller tamamlanır, anahtar teslim.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hizmetler">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Hizmetler</div>
+        <h2>Baştan sona yapı çözümleri.</h2>
+      </div>
+    </div>
+    <div class="sgrid reveal">
+      <div class="scard"><h3>Endüstriyel Tesisler</h3><p>Lojistik depo, üretim tesisi ve soğuk hava deposu gibi büyük açıklıklı yapılar.</p></div>
+      <div class="scard"><h3>Ticari &amp; Kurumsal</h3><p>A sınıfı ofis kuleleri, ticari kompleksler ve kampüs yapıları.</p></div>
+      <div class="scard"><h3>Konut &amp; Yerleşke</h3><p>Müstakil konut yerleşkelerinde peyzajdan ortak alanlara kadar planlama.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="hakkimizda" class="about">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div class="about-media"><img src="assets/projects/akgida-interior.jpg" alt="Ak Gıda deposu, iç mekân raf ve soğuk hava sistemleri" width="1400" height="1050" loading="lazy"></div>
+      <div class="about-text">
+        <div class="eyebrow">Hakkımızda</div>
+        <h2>Mühendislik disipliniyle inşa ediyoruz.</h2>
+        <p>Best Yapı, farklı ölçek ve programdaki yapıları tek bir yürütme standardında hayata geçiren bir yapı ve inşaat firmasıdır. Doğru planlama, sağlam mühendislik ve zamanında teslim önceliğimizdir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow on-dark">İletişim</div>
+        <h2>Projenizi konuşalım.</h2>
+        <div class="contact-info">
+          <div class="row"><div class="lbl">Telefon</div><div class="val">0532 399 87 67</div></div>
+          <div class="row"><div class="lbl">E-posta</div><div class="val">mimarercansari@gmail.com</div></div>
+          <div class="row"><div class="lbl">Adres</div><div class="val">Yeni Mah., Atatürk Cd. No:13 İç Kapı No:11, Tire/İzmir</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form id="contactForm">
+          <div class="field"><label for="cf-name">Ad Soyad</label><input id="cf-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="cf-email">E-posta</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="cf-message">Proje Hakkında</label><textarea id="cf-message" name="message" rows="4"></textarea></div>
+          <button type="submit" class="submit-btn">Gönder</button>
+          <p id="formNote" role="status" aria-live="polite" style="display:none; font-size:12.5px; color:#8FC1EE; margin-top:6px;">Form arayüzü hazır — canlıya almadan önce bir form servisine (Netlify Forms, Formspree vb.) bağlanmalı.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <img src="assets/logo-white.png" alt="Best Yapı" width="110" height="22" loading="lazy">
+      <div class="footer-links">
+        <a href="#projeler">Projeler</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="flex-direction:column; align-items:flex-start; gap:6px;">
+      <span>© 2026 Best Yapı. Tüm hakları saklıdır.</span>
+      <span style="opacity:0.65;">Best Yapı, Bestart Mimarlık Yapı Üretim San. ve Tic. Ltd. Şti. markasıdır.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const heroVideo = document.querySelector('.hero video');
+  if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+  }
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  function closeMenu(){ navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
+  function onEscClose(e){ if (e.key === 'Escape'){ closeMenu(); menuBtn.focus(); } }
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open){ navLinks.querySelector('a')?.focus(); document.addEventListener('keydown', onEscClose); }
+    else { document.removeEventListener('keydown', onEscClose); }
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.reset();
+    document.getElementById('formNote').style.display = 'block';
+  });
+
+  const revealEls = document.querySelectorAll('.reveal, .psteps-wrap');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ===== Project lightbox =====
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbTitle = document.getElementById('lightboxTitle');
+  const lbLoc = document.getElementById('lightboxLoc');
+  const lbDesc = document.getElementById('lightboxDesc');
+  const lbClose = document.getElementById('lightboxClose');
+  const lbBackdrop = document.getElementById('lightboxBackdrop');
+  let lastFocused = null;
+
+  function openLightbox(card){
+    lastFocused = document.activeElement;
+    lbImg.src = card.dataset.img;
+    lbImg.alt = card.dataset.title;
+    lbTitle.textContent = card.dataset.title;
+    lbLoc.textContent = card.dataset.loc;
+    lbDesc.textContent = card.dataset.desc;
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+    document.addEventListener('keydown', onLightboxKey);
+  }
+  function closeLightbox(){
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onLightboxKey);
+    lastFocused?.focus();
+  }
+  function onLightboxKey(e){ if (e.key === 'Escape') closeLightbox(); }
+
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('click', () => openLightbox(card));
+  });
+  lbClose.addEventListener('click', closeLightbox);
+  lbBackdrop.addEventListener('click', closeLightbox);
+</script>
+
+</body>
+</html>
